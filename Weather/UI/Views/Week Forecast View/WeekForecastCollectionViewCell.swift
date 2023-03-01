@@ -45,7 +45,7 @@ class WeekForecastCollectionViewCell: UICollectionViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.spacing = 24
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -87,7 +87,7 @@ extension WeekForecastCollectionViewCellData {
     func setupCellData(data: WeatherForecastDayModel) {
         iconImage.downloadImage(urlString: data.day.condition.icon)
         dateTimeLabel.text = data.date.getDateStringFromUTC()
-        minTempLabel.text = "Min \(data.day.mintempC) C"
-        maxTempLabel.text = "Max \(data.day.maxtempC) C"
+        minTempLabel.text = "Min: \(data.day.mintempC) °C"
+        maxTempLabel.text = "Max: \(data.day.maxtempC) °C"
     }
 }

@@ -11,7 +11,7 @@ class TodayWeatherView: UIView {
     // MARK: - Properties
     internal lazy var iconImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
