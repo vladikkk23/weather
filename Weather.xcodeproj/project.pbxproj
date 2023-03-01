@@ -26,6 +26,14 @@
 		614B01D429AE60E700A90B1E /* RequestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B01D329AE60E700A90B1E /* RequestsService.swift */; };
 		614B01D629AE62E300A90B1E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B01D529AE62E300A90B1E /* MainViewModel.swift */; };
 		614B01D829AE6A7F00A90B1E /* MainViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B01D729AE6A7F00A90B1E /* MainViewControllerLayout.swift */; };
+		615DAE6D29AF903D005D7FA6 /* MockRequestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DAE6C29AF903D005D7FA6 /* MockRequestsService.swift */; };
+		615DAE6E29AF909A005D7FA6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B01CA29AE598600A90B1E /* WeatherModel.swift */; };
+		615DAE6F29AF909D005D7FA6 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B01CD29AE59BC00A90B1E /* CurrentWeatherModel.swift */; };
+		615DAE7029AF90A0005D7FA6 /* WeatherForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B01CF29AE59EA00A90B1E /* WeatherForecastModel.swift */; };
+		615DAE7129AF90A2005D7FA6 /* WeatherLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B01D129AE5A1C00A90B1E /* WeatherLocationModel.swift */; };
+		615DAE7229AF9249005D7FA6 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6138D7A129AE8E2C0038165E /* UIImageViewExtensions.swift */; };
+		615DAE7429AF9286005D7FA6 /* MockImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DAE7329AF9286005D7FA6 /* MockImageDownloader.swift */; };
+		615DAE7629AF9F21005D7FA6 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 615DAE7529AF9F21005D7FA6 /* test.json */; };
 		6180C25629AF4E130060EF2C /* TodayWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180C25529AF4E130060EF2C /* TodayWeatherView.swift */; };
 		6180C25A29AF58980060EF2C /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180C25929AF58980060EF2C /* DoubleExtensions.swift */; };
 		6180C25E29AF59930060EF2C /* MainViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180C25D29AF59930060EF2C /* MainViewControllerDelegates.swift */; };
@@ -73,6 +81,9 @@
 		614B01D329AE60E700A90B1E /* RequestsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsService.swift; sourceTree = "<group>"; };
 		614B01D529AE62E300A90B1E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		614B01D729AE6A7F00A90B1E /* MainViewControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerLayout.swift; sourceTree = "<group>"; };
+		615DAE6C29AF903D005D7FA6 /* MockRequestsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequestsService.swift; sourceTree = "<group>"; };
+		615DAE7329AF9286005D7FA6 /* MockImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageDownloader.swift; sourceTree = "<group>"; };
+		615DAE7529AF9F21005D7FA6 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		6180C25529AF4E130060EF2C /* TodayWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherView.swift; sourceTree = "<group>"; };
 		6180C25929AF58980060EF2C /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		6180C25D29AF59930060EF2C /* MainViewControllerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerDelegates.swift; sourceTree = "<group>"; };
@@ -162,6 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				614B01A729AE546500A90B1E /* WeatherTests.swift */,
+				615DAE6C29AF903D005D7FA6 /* MockRequestsService.swift */,
+				615DAE7329AF9286005D7FA6 /* MockImageDownloader.swift */,
+				615DAE7529AF9F21005D7FA6 /* test.json */,
 			);
 			path = WeatherTests;
 			sourceTree = "<group>";
@@ -402,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615DAE7629AF9F21005D7FA6 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +459,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615DAE7229AF9249005D7FA6 /* UIImageViewExtensions.swift in Sources */,
+				615DAE6F29AF909D005D7FA6 /* CurrentWeatherModel.swift in Sources */,
+				615DAE7129AF90A2005D7FA6 /* WeatherLocationModel.swift in Sources */,
 				614B01A829AE546500A90B1E /* WeatherTests.swift in Sources */,
+				615DAE6E29AF909A005D7FA6 /* WeatherModel.swift in Sources */,
+				615DAE6D29AF903D005D7FA6 /* MockRequestsService.swift in Sources */,
+				615DAE7029AF90A0005D7FA6 /* WeatherForecastModel.swift in Sources */,
+				615DAE7429AF9286005D7FA6 /* MockImageDownloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Test.App.WeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -681,7 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Test.App.WeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -699,6 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Test.App.WeatherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -716,6 +739,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Test.App.WeatherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
