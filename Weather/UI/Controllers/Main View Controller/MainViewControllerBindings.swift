@@ -29,7 +29,7 @@ extension MainViewControllerBindings {
             if let data = data {
                 self.todayWeatherView.countryLabel.text = data.country
                 self.todayWeatherView.cityLabel.text = data.name
-                self.todayWeatherView.dateTimeLabel.text = data.localtimeEpoch.getDateStringFromUTC()
+                self.todayWeatherView.dateTimeLabel.text = data.localtime.getDateStringFromUTC()
             }
         }
         .store(in: &cancellables)
@@ -37,7 +37,8 @@ extension MainViewControllerBindings {
         viewModel.$forecastData.sink { [weak self] data in
             guard let self = self else { return }
             
-            if let data = data {
+            if let data = data,
+               !data.isEmpty {
                 self.weekForecastCollectionView.reloadData()
             }
         }
