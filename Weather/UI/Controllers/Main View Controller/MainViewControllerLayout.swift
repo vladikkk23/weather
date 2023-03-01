@@ -45,7 +45,7 @@ extension MainViewControllerLayout {
         NSLayoutConstraint.activate([
             weekForecastCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             weekForecastCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            weekForecastCollectionView.topAnchor.constraint(equalTo: todayWeatherView.bottomAnchor, constant: 24),
+            weekForecastCollectionView.topAnchor.constraint(equalTo: todayWeatherView.bottomAnchor, constant: 60),
             weekForecastCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
