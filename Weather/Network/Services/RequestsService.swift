@@ -9,13 +9,13 @@ import Foundation
 
 class RequestsService {
     // MARK: - Properties
-    private let baseURLString = "http://api.weatherapi.com/v1/forecast.json?key=522db6a157a748e2996212343221502&q=Dublin&days=7&aqi=no&alerts=no"
+    private let baseURLString = "http://api.weatherapi.com/v1/forecast.json?key=522db6a157a748e2996212343221502&q=Chisinau&days=7&aqi=no&alerts=no"
     
     
     // MARK: - Methods
     func getWeatherData(completion: @escaping (Result<WeatherModel, Error>)  -> Void) {
         guard let url = URL(string: baseURLString) else {
-            print("Failed to create base URL\n\(#line)")
+            print("Failed to create base URL\n\(#function)")
             return
         }
         
@@ -30,7 +30,7 @@ class RequestsService {
                 
                 let decoder = JSONDecoder()
                 guard let decodedData = try? decoder.decode(WeatherModel.self, from: data) else {
-                    print("Decoding failed\n\(#line)")
+                    print("Decoding failed\n\(#function)")
                     return
                 }
                 
