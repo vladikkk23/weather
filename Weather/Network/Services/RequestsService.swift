@@ -13,7 +13,7 @@ class RequestsService {
     
     
     // MARK: - Methods
-    func getWeatherData() {
+    func getWeatherData(completion: @escaping (Result<WeatherModel, Error>)  -> Void) {
         guard let url = URL(string: baseURLString) else {
             print("Failed to create base URL\n\(#line)")
             return
@@ -22,6 +22,7 @@ class RequestsService {
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             if let error = error {
                 print("Request failed with error: \(error.localizedDescription)")
+                completion(.failure(error))
             }
             
             if let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) {
@@ -33,7 +34,7 @@ class RequestsService {
                     return
                 }
                 
-                print(decodedData)
+                completion(.success(decodedData))
             }
         }
         

@@ -14,11 +14,11 @@ struct WeatherForecastModel: Codable {
 
 // MARK: - WeatherForecastdayModel
 struct WeatherForecastDayModel: Codable {
-    let date: String
+    let date: Double
     let day: WeatherDayModel
     
     enum CodingKeys: String, CodingKey {
-        case date
+        case date = "date_epoch"
         case day
     }
 }

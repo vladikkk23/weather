@@ -12,7 +12,7 @@ struct WeatherLocationModel: Codable {
     let name, region, country: String
     let lat, lon: Double
     let tzID: String
-    let localtimeEpoch: Int
+    let localtimeEpoch: Double
     let localtime: String
     
     enum CodingKeys: String, CodingKey {
