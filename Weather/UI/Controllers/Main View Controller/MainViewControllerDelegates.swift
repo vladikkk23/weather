@@ -10,7 +10,7 @@ import UIKit
 typealias MainViewControllerDelegates = MainViewController
 extension MainViewControllerDelegates: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width * 0.9, height: collectionView.frame.height / CGFloat(viewModel.dataCounter) * 0.3)
+        CGSize(width: collectionView.frame.width, height: collectionView.frame.height / CGFloat(viewModel.dataCounter) * 0.35)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

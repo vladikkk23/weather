@@ -25,7 +25,7 @@ class TodayWeatherView: UIView {
     
     internal lazy var cityLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 42)
+        label.font = UIFont(name: "Avenir", size: 36)
         label.textColor = .white
         return label
     }()
@@ -67,10 +67,10 @@ class TodayWeatherView: UIView {
         addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            stackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9)
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }

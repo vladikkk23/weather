@@ -14,11 +14,14 @@ class MainViewController: UIViewController {
     internal var cancellables: Set<AnyCancellable> = []
     
     // MARK: - UI
-    internal lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    internal var compactConstraints: [NSLayoutConstraint] = []
+    internal var regularConstraints: [NSLayoutConstraint] = []
+    internal var sharedConstraints: [NSLayoutConstraint] = []
+    
+    internal lazy var viewContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     internal lazy var todayWeatherView: TodayWeatherView = {
@@ -38,18 +41,19 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = .gray
-        
-        backgroundImageView.downloadImage(urlString: Constants.backgroundImageURLString)
         weekForecastCollectionView.delegate = self
         weekForecastCollectionView.dataSource = self
         weekForecastCollectionView.register(WeekForecastCollectionViewCell.self, forCellWithReuseIdentifier: WeekForecastCollectionViewCell.reuseIdentifier)
+        
+        setupBindings()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBindings()
         setupLayout()
+        
+        NSLayoutConstraint.activate(sharedConstraints)
+        layoutTrait(traitCollection: UIScreen.main.traitCollection)
     }
 }
