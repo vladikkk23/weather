@@ -38,6 +38,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.backgroundColor = .gray
         
         backgroundImageView.downloadImage(urlString: Constants.backgroundImageURLString)
         weekForecastCollectionView.delegate = self

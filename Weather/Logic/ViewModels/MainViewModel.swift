@@ -20,11 +20,44 @@ class MainViewModel {
     // MARK: - Initializers
     init() {
         requestServices = RequestsService()
-        getWeatherData()
+        fetchData()
     }
     
     
     // MARK: - Methods
+    func fetchData() {
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let pathWithFileName = documentDirectory.appendingPathComponent("weatherJsonData")
+            do {
+                let data = try Data(contentsOf: pathWithFileName)
+                let decoder = JSONDecoder()
+                let decodedData = try decoder.decode(WeatherModel.self, from: data)
+                
+                if let first = decodedData.forecast.forecastday.first {
+                    let stringDate = first.date.getDateStringFromUTC()
+                    let todayDate = Date().timeIntervalSince1970.getDateStringFromUTC()
+                    
+                    if stringDate != todayDate {
+                        getWeatherData()
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.dataCounter = decodedData.forecast.forecastday.count
+                    self.locationData = decodedData.location
+                    self.currentWeatherData = decodedData.current
+                    self.forecastData = decodedData.forecast.forecastday
+                }
+            } catch {
+                print("No local data. Fetching from server")
+                getWeatherData()
+                return
+            }
+        } else {
+            getWeatherData()
+        }
+    }
+    
     func getWeatherData() {
         requestServices.getWeatherData { [weak self] result in
             guard let self = self else { return }

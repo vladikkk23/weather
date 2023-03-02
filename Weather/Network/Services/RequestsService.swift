@@ -34,6 +34,15 @@ class RequestsService {
                     return
                 }
                 
+                if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    let pathWithFileName = documentDirectory.appendingPathComponent("weatherJsonData")
+                    do {
+                        try data.write(to: pathWithFileName)
+                    } catch {
+                        print("Failed to save data \(#function)")
+                    }
+                }
+                
                 completion(.success(decodedData))
             }
         }
